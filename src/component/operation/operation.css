@@ -1,0 +1,50 @@
+.operationCon {
+    margin: 20px;
+    background-color: thistle;
+    position: relative;
+}
+.operationCon div {
+    width: 0px;
+    height: 0px;
+    border-width: 30px;
+    border-style: solid;
+    position: absolute;
+}
+.left {
+    border-color: transparent black transparent transparent;
+    top: 70px;
+}
+.leftPush{
+    border-color: transparent red transparent transparent;
+    top: 70px;
+}
+
+.right {
+    border-color: transparent transparent transparent black;
+    top: 70px;
+    left: 140px;
+}
+.rightPush{
+    border-color: transparent transparent transparent red;
+    top: 70px;
+    left: 140px;
+}
+
+.top {
+    border-color: transparent transparent black transparent;
+    left: 70px;
+}
+.topPush {
+    border-color: transparent transparent red transparent;
+    left: 70px;
+}
+.bottom {
+    border-color: black transparent transparent transparent;
+    top: 140px;
+    left: 70px;
+}
+.bottomPush {
+    border-color: red transparent transparent transparent;
+    top: 140px;
+    left: 70px;
+}
