@@ -2,7 +2,7 @@
 .boardCon{
     width: 500px;
     height: 500px;
-    background-color: blanchedalmond;
+    background-color: #bbada0;
     padding: 5px;
     display: flex;
     justify-content: center;
@@ -21,11 +21,144 @@
     height: 24%;
     margin: 2px;
     border-radius: 5px;
-    background-color: brown;
 }
 .pieceCon{
     font-size: 34px;
+    color: #776e65;
+    font-weight: 900;
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: rgba(238,228,218,.35);
+}
+
+.color-2{
+    background-color: #eee4da;
+}
+.color-4{
+    background-color: #ede0c8;
+}
+.color-8{
+    background-color: #f2b179;
+}
+.color-16{
+    background-color: #f59563;
+}
+.color-32{
+    background-color: #f67c5f;
+}
+.color-64{
+    background-color: #f65e3b;
+}
+.color-128{
+    background-color: #edcf72;
+}
+.color-256{
+    background-color: #edcc61;
+}
+.color-512{
+    background-color: #edc850;
+}
+.color-1024{
+    background-color: #edc53f;
+}
+.color-2048{
+    background-color: #edc22e;
+}
+.color-4096{
+    background-color: #edc850;
+}
+
+.side{
+    /* background-color: red; */
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 150px;
+    align-items: center;
+
+}
+.scoreCon{
+    width: 120px;
+    height: 75px;
+    border-radius: 5px;
+    font-size: 20px;
+    color:white;
+    background-color: #bbada0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.scoreCon::before{
+    content: 'score';
+    display: block;
+    color: #eee8e2;
+    font-size: 27px;
+}
+.clear{
+    position: relative;
+    top: 20px;
+}
+.newGameButton{
+    background-color: #8f7a66;
+    width: 120px;
+    height: 50px;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.operationCon {
+    position: absolute;
+    top: 250px;
+    left: 0px;
+}
+.operationCon div {
+    width: 0px;
+    height: 0px;
+    border-width: 30px;
+    border-style: solid;
+    position: absolute;
+}
+.left {
+    border-color: transparent black transparent transparent;
+    top: 70px;
+}
+.leftPush{
+    border-color: transparent red transparent transparent;
+    top: 70px;
+}
+
+.right {
+    border-color: transparent transparent transparent black;
+    top: 70px;
+    left: 140px;
+}
+.rightPush{
+    border-color: transparent transparent transparent red;
+    top: 70px;
+    left: 140px;
+}
+
+.top {
+    border-color: transparent transparent black transparent;
+    left: 70px;
+}
+.topPush {
+    border-color: transparent transparent red transparent;
+    left: 70px;
+}
+.bottom {
+    border-color: black transparent transparent transparent;
+    top: 140px;
+    left: 70px;
+}
+.bottomPush {
+    border-color: red transparent transparent transparent;
+    top: 140px;
+    left: 70px;
 }
