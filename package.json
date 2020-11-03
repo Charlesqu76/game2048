@@ -15,8 +15,6 @@
   },
   "homepage": "https://github.com/Charlesqu76/game2048#readme",
   "dependencies": {
-    "mobx": "^6.0.1",
-    "mobx-react": "^7.0.0",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
     "webpack": "^4.42.1"
