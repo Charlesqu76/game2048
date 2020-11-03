@@ -39,6 +39,7 @@ export default class Board extends React.Component {
    */
   changeData(rowList) {
     const newArr = [];
+    let combinedCoordinate = [];
     // 数据相加
     for (let i in rowList) {
       let temp = rowList[i].filter((v) => v !== 0);
@@ -47,6 +48,7 @@ export default class Board extends React.Component {
         let resultLen = result.length;
         if (result[resultLen - 1] === temp[index]) {
           result[resultLen - 1] = temp[index] * 2;
+          combinedCoordinate.push([Number(i), index - 1]);
           this.changeScore(temp[index] * 2);
         } else {
           result.push(temp[index]);
@@ -57,9 +59,10 @@ export default class Board extends React.Component {
       for (let i = 0; i < xLen; i++) {
         fullRowList[i] = result[i] ? result[i] : 0;
       }
+
       newArr.push(fullRowList);
     }
-    return newArr.flat();
+    return { data: newArr.flat(), combinedCoordinate: combinedCoordinate };
   }
 
   /**
@@ -98,26 +101,30 @@ export default class Board extends React.Component {
     let rowList = [[], [], [], []];
     let temp = [];
     let finalList = [[], [], [], []];
+    let data = null;
     switch (e.key) {
       case "a" || "ArrowLeft":
         for (let i in this.state.data) {
           rowList[(i / xLen) | 0][i % xLen] = this.state.data[i];
         }
-        finalList = this.changeData(rowList);
+        data = this.changeData(rowList);
+        finalList = data.data;
+        
         if (!this.arrayIsEqual(this.state.data, finalList)) {
           this.setState({ data: finalList, a: true });
           this.random();
         }
-
         break;
       case "d" || "ArrowRight":
         for (let i in this.state.data) {
           rowList[(i / 4) | 0][3 - (i % 4)] = this.state.data[i];
         }
-        temp = this.changeData(rowList);
+        data = this.changeData(rowList);
+        temp = data.data;
         for (let i in temp) {
           finalList[(i / xLen) | 0][xLen - 1 - (i % 4)] = temp[i];
         }
+
         if (!this.arrayIsEqual(this.state.data, finalList.flat())) {
           this.setState({ data: finalList.flat(), d: true });
           this.random();
@@ -130,7 +137,8 @@ export default class Board extends React.Component {
             xLen - 1 - ((i / 4) | 0)
           ] = this.state.data[i];
         }
-        temp = this.changeData(rowList);
+        data = this.changeData(rowList);
+        temp = data.data;
         for (let i in temp) {
           finalList[xLen - 1 - (i % 4)][xLen - 1 - ((i / 4) | 0)] = temp[i];
         }
@@ -143,7 +151,8 @@ export default class Board extends React.Component {
         for (let i in this.state.data) {
           rowList[i % xLen][(i / xLen) | 0] = this.state.data[i];
         }
-        temp = this.changeData(rowList);
+        data = this.changeData(rowList);
+        temp = data.data;
         for (let i in temp) {
           finalList[i % xLen][(i / xLen) | 0] = temp[i];
         }

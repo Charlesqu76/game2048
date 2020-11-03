@@ -31,6 +31,27 @@
     align-items: center;
     background-color: rgba(238,228,218,.35);
 }
+.pieceCombine{
+    animation: combine 1s linear 1;
+}
+@keyframes move{
+    from {
+        transform: translateX(0%);
+    }
+    to{
+        transform: translateX(100%);
+
+    }
+}
+@keyframes combine{
+    0%, 100%{
+        transform: scale(1);
+    }
+    50%{
+        transform: scale(1.1);
+    }
+    
+}
 
 .color-2{
     background-color: #eee4da;
